@@ -102,9 +102,41 @@ Then
 \end{equation*}
 Here $\norm[\ch_K]{\cdot}$ represents the Hilbert space norm, which depends on $K$; $D(\cdot)$ is a \alert{norm} on a space of distributions, and $D(P - P_n)$ represents the quality of the support points for integrating functions in $\ch_k$
     \begin{equation*}
-        D^2(P-P_n) = \int_{\Omega \times \Omega} K(\vt,\vx) \, \dif \vt \dif \vx - \frac 1{2n} \sum_{i=1}^n \int_\Omega K(\vx_i,\vt) \, \dif \vt + \frac 1{n^2} \sum_{i,j=1}K(\vx_i,\vx_j)       
+        D^2(P-P_n) = \int_{\Omega \times \Omega} K(\vt,\vx) \, \dif \vt \dif \vx - \frac 2{n} \sum_{i=1}^n \int_\Omega K(\vx_i,\vt) \, \dif \vt + \frac 1{n^2} \sum_{i,j=1}K(\vx_i,\vx_j)       
     \end{equation*}
 \end{frame}
+
+\begin{frame}{Optimizing $\mX_n$ in 1-D}
+	For a given $n$ and $\Omega \subseteq \reals$, how would we choose $\mX_n$ for a given $K$?  
+	
+	Let $\eta(x) := \int_\Omega K(x,t) \, \dif t$, $\xi = \int_\Omega \eta(x) \, \dif x$, and $\zeta(t,x) := \frac{\partial K(t,x)}{\partial t}$
+	\begin{gather*}
+		 D^2(X_n) = D^2(P-P_n) = \xi - \frac 2{n} \sum_{i=1}^n  \eta(x_i) + \frac 1{n^2} \sum_{i,j=1}K(x_i,x_j) \\
+		 \frac{\partial D^2(X_n)}{\partial x_i} = \frac {1}{n} \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n \zeta(x_i,x_j) - \frac 1{n} \zeta(x_i,x_i) \right]
+	\end{gather*}
+So we can use gradient descent:
+\[
+x_i^{\text{new}} = x_i - \alpha \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n \zeta(x_i,x_j) - \frac 1{n} \zeta(x_i,x_i) \right]
+\]
+\end{frame}
+
+\begin{frame}{Optimizing $\mX_n$ in 1-D for Rough Matern Kernel}
+	\begin{align*}
+		K(t,x) &= \exp(-\abs{t-x}), \qquad \Omega = [0,1] \\
+		\eta(x) &= \int_0^1 \exp(-\abs{t-x}) \, \dif t = \int_0^x \exp(t-x) \, \dif t +  \int_x^1 \exp(x - t) \, \dif t \\
+		& = \exp(t-x) \bigr \rvert_0^x - \exp(x - t) \bigr\rvert_x^1 = 2  - \exp(-x) - \exp(x-1) \\
+		\xi &= \int_0^1 \eta(x) \, \dif x =  2 + \exp(-x) \bigr \rvert_0^1 - \exp(x-1) \bigr \rvert_0^1 = 2 \exp(-1)  \\
+		\eta'(x) &= \exp(-x)  - \exp(x-1) \\
+		\zeta(t,x) & = \begin{cases} -\exp(-\abs{t-x}) \sgn(t-x) ,& t \ne x\\
+			0, & t = x
+		\end{cases}
+	\end{align*}
+	
+	\[
+	x_i^{\text{new}} = x_i - \alpha \left [ 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n \zeta(x_i,x_j) - \frac 1{n} \zeta(x_i,x_i) \right]
+	\]
+\end{frame}
+
 
 
 
