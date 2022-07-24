@@ -1,0 +1,112 @@
+%Compilation of research projects that we are interested in
+\documentclass[10pt,compress,xcolor={usenames,dvipsnames},aspectratio=169]{beamer}
+%\documentclass[xcolor={usenames,dvipsnames},aspectratio=169]{beamer} %slides and 
+%notes
+\usepackage[T1]{fontenc}
+\usepackage{tgadventor} %Font found at https://tug.org/FontCatalogue/
+%\usepackage{newpxtext}
+\usepackage[euler-digits,euler-hat-accent]{eulervm}
+
+\usepackage{amsmath,
+	amssymb,
+	datetime,
+	mathtools,
+	bbm,
+	%mathabx,
+	array,
+	booktabs,
+	xspace,
+	multirow,
+	calc,
+	colortbl,
+	siunitx,
+ 	graphicx}
+\usepackage[usenames]{xcolor}
+\usepackage[giveninits=false,backend=biber,style=nature, maxcitenames =10, mincitenames=9]{biblatex}
+\addbibresource{FJHown23.bib}
+\addbibresource{FJH23.bib}
+\usepackage{media9}
+\usepackage[autolinebreaks]{mcode}
+\usepackage[tikz]{mdframed}
+
+
+\usetheme{FJHSlimNoFoot169}
+\setlength{\parskip}{2ex}
+\setlength{\arraycolsep}{0.5ex}
+
+
+\DeclareMathOperator{\SOL}{SOL}
+\DeclareMathOperator{\APP}{APP}
+\DeclareMathOperator{\ERR}{ERR}
+\DeclareMathOperator{\AVG}{AVG}
+\DeclareMathOperator{\INT}{INT}
+\DeclareMathOperator{\LIN}{LINEAR}
+\DeclareMathOperator{\BAD}{BAD}
+%\DeclareMathOperator{\opt}{opt}
+\newcommand{\dataN}{\bigl(\hf(\vk_i)\bigr)_{i=1}^n}
+\newcommand{\dataNj}{\bigl(\hf(\vk_i)\bigr)_{i=1}^{n_j}}
+\newcommand{\dataNjd}{\bigl(\hf(\vk_i)\bigr)_{i=1}^{n_{j^\dagger}}}
+\newcommand{\ERRN}{\ERR\bigl(\dataN,n\bigr)}
+\newcommand{\otod}{\ensuremath{1\mkern-4mu : \mkern-2mu d}}
+
+
+%\DeclareMathOperator{\app}{app}
+
+\providecommand{\HickernellFJ}{H.\xspace}
+
+
+\renewcommand{\OffTitleLength}{-7ex}
+\setlength{\FJHThankYouMessageOffset}{-8ex}
+\title{Optimal Support Points}
+\author[]{Fred J. Hickernell}
+\institute{Department of Applied Mathematics \qquad
+	Center for Interdisciplinary Scientific Computation \\
+	Illinois Institute of Technology \qquad
+	\href{mailto:hickernell@iit.edu}{\url{hickernell@iit.edu}} \qquad
+	\href{http://mypages.iit.edu/~hickernell}{\url{mypages.iit.edu/~hickernell}}}
+
+\thanksnote{}
+	
+%\event{Happy Fred}
+\date[]{ revised \today}
+
+\input FJHDef.tex
+
+
+
+\begin{document}
+	\everymath{\displaystyle}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Background}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Discrepancy and Cubature Error}
+\vspace{-3ex}
+Let 
+\vspace{-2ex}
+\begin{itemize}
+    \item $K:\Omega \times \Omega \to \reals$ be a \alert{reproducing kernel} for a Hilbert space $\ch_K$ of functions defined on the domain $\Omega$
+    \item $p: \Omega \to [0,\infty]$ be a probability density function with associated \alert{cumulative distribution function} $P$
+    \item $\mX = (\vx_1, \vx_2, \ldots )^T \subset \Omega^\naturals$ be a sequence of \alert{support points}
+    \item $\mX_n \subset \Omega^n$ denote  first $n$ of them, and  $P_n$ denote its empirical distribution function
+\end{itemize}  
+\vspace{-2ex}
+Then
+\begin{equation*}
+      \abs{\int_\Omega f(\vx) \, \dif \vx - \frac 1n \sum_{i=1}^n f(\vx_i)} \le D(P - P_n) \norm[\ch_K]{f}  
+\end{equation*}
+Here $\norm[\ch_K]{\cdot}$ represents the Hilbert space norm, which depends on $K$; $D(\cdot)$ is a \alert{norm} on a space of distributions, and $D(P - P_n)$ represents the quality of the support points for integrating functions in $\ch_k$
+    \begin{equation*}
+        D^2(P-P_n) = \int_{\Omega \times \Omega} K(\vt,\vx) \, \dif \vt \dif \vx - \frac 1{2n} \sum_{i=1}^n \int_\Omega K(\vx_i,\vt) \, \dif \vt + \frac 1{n^2} \sum_{i,j=1}K(\vx_i,\vx_j)       
+    \end{equation*}
+\end{frame}
+
+
+
+
+\end{document}
