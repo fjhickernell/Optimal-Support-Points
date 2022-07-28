@@ -1,0 +1,93 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2511,         85]
+NotebookOptionsPosition[      1791,         62]
+NotebookOutlinePosition[      2184,         78]
+CellTagsIndexPosition[      2141,         75]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Kernel Integrals and Derivatives", "Title",
+ CellChangeTimes->{{3.868011363320904*^9, 
+  3.868011374645059*^9}},ExpressionUUID->"4a12f4cc-a309-4818-a743-\
+0f1d5c8a43b9"],
+
+Cell[CellGroupData[{
+
+Cell["Rough Matern", "Section",
+ CellChangeTimes->{{3.868011387901967*^9, 
+  3.86801139092583*^9}},ExpressionUUID->"781b25c0-f098-472a-8eea-\
+61cfbebf21e7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"roughMatern", "[", 
+   RowBox[{"t_", ",", "x_"}], "]"}], " ", "=", " ", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"-", " ", "b"}], " ", 
+    RowBox[{"Abs", "[", 
+     RowBox[{"t", "-", "x"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.868011395793394*^9, 3.868011441467004*^9}, {
+  3.868011608622755*^9, 3.868011609355988*^9}, {3.8680128293563023`*^9, 
+  3.868012831059206*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"ab892c25-4d57-4f80-8723-9ddc64a604be"],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  RowBox[{
+   RowBox[{"-", "b"}], " ", 
+   RowBox[{"Abs", "[", 
+    RowBox[{"t", "-", "x"}], "]"}]}]]], "Output",
+ CellChangeTimes->{3.868012861567902*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"27baf288-2310-4ccd-9a4e-26c074ac46b6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1101, 997},
+WindowMargins->{{60, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.1 for Mac OS X x86 (64-bit) (June 16, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1aac18c6-b084-4f61-b8cd-acd3d059d3bd"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 175, 3, 98, "Title",ExpressionUUID->"4a12f4cc-a309-4818-a743-0f1d5c8a43b9"],
+Cell[CellGroupData[{
+Cell[780, 29, 156, 3, 67, "Section",ExpressionUUID->"781b25c0-f098-472a-8eea-61cfbebf21e7"],
+Cell[CellGroupData[{
+Cell[961, 36, 504, 12, 30, "Input",ExpressionUUID->"ab892c25-4d57-4f80-8723-9ddc64a604be"],
+Cell[1468, 50, 283, 7, 58, "Output",ExpressionUUID->"27baf288-2310-4ccd-9a4e-26c074ac46b6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

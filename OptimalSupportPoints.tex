@@ -121,6 +121,7 @@ x_i^{\text{new}} = x_i - \alpha \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n
 \end{frame}
 
 \begin{frame}{Optimizing $\mX_n$ in 1-D for Rough Matern Kernel}
+	\vspace{-5ex}
 	\begin{align*}
 		K(t,x) &= \exp(-\abs{t-x}), \qquad \Omega = [0,1] \\
 		\eta(x) &= \int_0^1 \exp(-\abs{t-x}) \, \dif t = \int_0^x \exp(t-x) \, \dif t +  \int_x^1 \exp(x - t) \, \dif t \\
@@ -131,7 +132,6 @@ x_i^{\text{new}} = x_i - \alpha \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n
 			0, & t = x
 		\end{cases}
 	\end{align*}
-	
 	\[
 	x_i^{\text{new}} = x_i - \alpha \left [ -2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n \zeta(x_i,x_j) - \frac 1{n} \zeta(x_i,x_i) \right]
 	\]
