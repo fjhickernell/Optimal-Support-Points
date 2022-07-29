@@ -2,7 +2,8 @@
 
 gail.InitializeWorkspaceDisplay
 
-kernelfun = @RoughMatern;
+beta = 0.1; %shape parameter
+kernelfun = @(x,flag) RoughMatern(x,flag,beta);
 ntry = 50; %number of gradient descent steps
 
 

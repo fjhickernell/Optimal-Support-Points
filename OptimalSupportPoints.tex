@@ -123,12 +123,11 @@ x_i^{\text{new}} = x_i - \alpha \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n
 \begin{frame}{Optimizing $\mX_n$ in 1-D for Rough Matern Kernel}
 	\vspace{-5ex}
 	\begin{align*}
-		K(t,x) &= \exp(-\abs{t-x}), \qquad \Omega = [0,1] \\
-		\eta(x) &= \int_0^1 \exp(-\abs{t-x}) \, \dif t = \int_0^x \exp(t-x) \, \dif t +  \int_x^1 \exp(x - t) \, \dif t \\
-		& = \exp(t-x) \bigr \rvert_0^x - \exp(x - t) \bigr\rvert_x^1 = 2  - \exp(-x) - \exp(x-1) \\
-		\xi &= \int_0^1 \eta(x) \, \dif x =  2 + \exp(-x) \bigr \rvert_0^1 - \exp(x-1) \bigr \rvert_0^1 = 2 \exp(-1)  \\
-		\eta'(x) &= \exp(-x)  - \exp(x-1) \\
-		\zeta(t,x) & = \begin{cases} -\exp(-\abs{t-x}) \sgn(t-x) ,& t \ne x\\
+		K(t,x) &= \exp(-\beta \abs{t-x}), \qquad \Omega = [0,1] \\
+		\eta(x) &= \int_0^1 \exp(-\beta \abs{t-x}) \, \dif t = \frac 1\beta \bigl( 2  - \exp(-\beta x) - \exp(\beta(x-1)) \bigr) \\
+		\xi & = \frac 1\beta^2 \bigl(  \beta - 1  + \exp(-\beta) \bigr)\\
+		\eta'(x) &= \exp(-\beta x)  - \exp(\beta(x-1)) \\
+		\zeta(t,x) & = \begin{cases} -\beta \exp(-\beta \abs{t-x}) \sgn(t-x) ,& t \ne x\\
 			0, & t = x
 		\end{cases}
 	\end{align*}
