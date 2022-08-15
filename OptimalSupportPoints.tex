@@ -109,10 +109,10 @@ Here $\norm[\ch_K]{\cdot}$ represents the Hilbert space norm, which depends on $
 \begin{frame}{Optimizing $\mX_n$ in 1-D}
 	For a given $n$ and $\Omega \subseteq \reals$, how would we choose $\mX_n$ for a given $K$?  
 	
-	Let $\eta(x) := \int_\Omega K(x,t) \, \dif t$, $\xi = \int_\Omega \eta(x) \, \dif x$, and $\zeta(t,x) := \frac{\partial K(t,x)}{\partial t}$
+	Let $\eta(x) := \int_\Omega K(x,t) \, \dif t$, $\xi = \int_\Omega \eta(x) \, \dif x$, $\zeta(t,x) := \frac{\partial K(t,x)}{\partial t}$,  and $\omega(t) := \frac{\partial K(t,t)}{\partial t}$
 	\begin{gather*}
 		 D^2(X_n) = D^2(P-P_n) = \xi - \frac 2{n} \sum_{i=1}^n  \eta(x_i) + \frac 1{n^2} \sum_{i,j=1}K(x_i,x_j) \\
-		 \frac{\partial D^2(X_n)}{\partial x_i} = \frac {1}{n} \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n \zeta(x_i,x_j) - \frac 1{n} \zeta(x_i,x_i) \right]
+		 \frac{\partial D^2(X_n)}{\partial x_i} = \frac {1}{n} \left [- 2\eta'(x_i)  + \frac 2{n} \sum_{j =1}^n \zeta(x_i,x_j) - \frac 2{n} \zeta(x_i,x_i) + \frac 1{n} \omega(x_i)\right]
 	\end{gather*}
 So we can use gradient descent:
 \[
